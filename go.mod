@@ -1,3 +1,3 @@
-module github.com/vikashparashar/golang_project_01
+module github.com/vikashparashar/Nutrition_Calculator
 
 go 1.19

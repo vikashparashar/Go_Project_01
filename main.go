@@ -1,19 +1,36 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"time"
+
+	"github.com/vikashparashar/Nutrition_Calculator/nut"
+)
 
 func main() {
-	ns := GetNutritionalScore(NutritionalData{
-		Energy:             EnergyFromKcal(0),
-		Sugars:             SugarGram(10),
-		SaturatedFattyAcid: SaturatedFattyAcid(2),
-		Sodium:             SodiumMilligram(500),
-		Fruits:             FruitsPercent(60),
-		Fibre:              FiberGram(4),
-		Protein:            ProteinGram(2),
-	}, Food)
+	ns := nut.GetNutritionalScore(nut.NutritionalData{
+		Energy:             nut.EnergyFromKcal(100),
+		Sugars:             nut.SugarGram(10),         // considerd as negative values
+		SaturatedFattyAcid: nut.SaturatedFattyAcid(2), // considerd as negative values
+		Sodium:             nut.SodiumMilligram(500),  // considerd as negative values
+		Fruits:             nut.FruitsPercent(60),     // considerd as positive values
+		Fibre:              nut.FiberGram(4),          // considerd as positive values
+		Protein:            nut.ProteinGram(2),        // considerd as positive values
+	}, nut.Food)
 
-	fmt.Printf("Nutritional Score : %d", ns.Value)
-	fmt.Printf("Nutri Score : %s", ns.GetNutriScore())
+	fmt.Println("_______________  Starting The Application  _______________")
+	fmt.Print("\n\n We are calculating your score please wait")
+	for i := 0; i <= 3; i++ {
+		time.Sleep(500 * time.Millisecond)
+		fmt.Print(" .")
+	}
+	fmt.Println("\n\n ----------------------------------------------------- ")
+	fmt.Println("                  Nutritional Calculator              ")
+	fmt.Println("------------------------------------------------------")
+	fmt.Printf("|               Nutritional Score : %d                 |\n", ns.Value)
+	fmt.Printf("|                     Nutri Score : %s                 |\n", ns.GetNutriScore())
+	fmt.Println(" ----------------------------------------------------- ")
+	fmt.Println("                 *** End Of Programe ***              ")
+	fmt.Println("")
 
 }

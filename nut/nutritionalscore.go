@@ -1,4 +1,4 @@
-package main
+package nut
 
 const (
 	Food ScoreType = iota
@@ -106,6 +106,7 @@ func GetNutritionalScore(n NutritionalData, st ScoreType) NutritionalScore {
 	value := 0
 	positive := 0
 	negative := 0
+
 	if st != Water {
 		fruitPoints := n.Fruits.GetPoints(st)
 		fibrePoints := n.Fibre.GetPoints(st)
